@@ -1,0 +1,19 @@
+{
+  "name": "express-lambda",
+  "version": "1.0.0",
+  "description": "Aws lambda with express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clemenshemmerling/express-lambda.git"
+  },
+  "author": "Clemens Hemmerling",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Clemenshemmerling/express-lambda/issues"
+  },
+  "homepage": "https://github.com/Clemenshemmerling/express-lambda#readme"
+}
