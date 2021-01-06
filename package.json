@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Clemenshemmerling/express-lambda/issues"
   },
-  "homepage": "https://github.com/Clemenshemmerling/express-lambda#readme"
+  "homepage": "https://github.com/Clemenshemmerling/express-lambda#readme",
+  "dependencies": {
+    "@vendia/serverless-express": "^3.4.0"
+  }
 }
