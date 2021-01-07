@@ -1,7 +1,9 @@
-const serverlessExpress = require('@vendia/serverless-express');
-const app = require('./app');
-const server = serverlessExpress.createServer(app);
+const serverless = require('serverless-http');
+const express = require('express')
+const app = express()
 
-exports.handler = (event, context) =>  { 
-  serverlessExpress.proxy(server, event, context);
-}; 
+app.get('/v1', function (req, res) {
+  res.send('Hello World!')
+})
+
+module.exports.handler = serverless(app);
