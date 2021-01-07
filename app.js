@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 app.use(serverlessExpressMiddleware.eventContext())
 
 app.get('/v1', (req, res) => {
-  res.json(req.apiGateway.event)
+  res.json({success: "test"})
 })
 
 module.exports = app
