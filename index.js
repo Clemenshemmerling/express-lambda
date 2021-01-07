@@ -5,7 +5,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send({ application: 'sample-app', version: '1' });
+  res.send({ ...req.body });
 });
 
 app.post('/', (req, res) => {
