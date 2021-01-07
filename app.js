@@ -9,3 +9,5 @@ app.use(serverlessExpressMiddleware.eventContext())
 app.get('/v1', (req, res) => {
   res.json(req.apiGateway.event)
 })
+
+module.exports = app
