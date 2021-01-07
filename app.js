@@ -1,6 +1,6 @@
-const express = require('express')
 const serverlessExpressMiddleware = require('@vendia/serverless-express/middleware')
 const bodyParser = require('body-parser')
+const express = require('express')
 const app = express()
 
 app.use(bodyParser.json())
