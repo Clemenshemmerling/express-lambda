@@ -4,15 +4,15 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send({ ...req.body });
-});
+// app.get('/', (req, res) => {
+//   res.send({ ...req.body });
+// });
+
+// app.post('/', (req, res) => {
+//   res.send({ ...req.body });
+// });
 
 app.post('/', (req, res) => {
-  res.send({ ...req.body });
-});
-
-app.post('/v1', (req, res) => {
   res.send({ application: 'test post', version: '1' });
 })
 
