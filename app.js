@@ -45,7 +45,7 @@ app.put('/v1', (req, res) => {
     Item: req.body
   }
 
-  ddb.update(params)
+  ddb.update(params).promise()
   .then(response => res.send(response))
   .catch(err => res.send(err));
 });
@@ -56,7 +56,7 @@ app.delete('/v1', (req, res) => {
     Item: req.body
   }
 
-  ddb.delete(params)
+  ddb.delete(params).promise()
   .then(response => res.send(response))
   .catch(err => res.send(err));
 });
