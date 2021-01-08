@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 const app = express();
 
-const tableName = process.env.TABLE;
+const tableName = "Message";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
