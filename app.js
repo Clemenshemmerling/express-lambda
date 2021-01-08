@@ -1,15 +1,10 @@
-const serverlessExpressMiddleware = require('@vendia/serverless-express/middleware');
-const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.use(bodyParser.json());
-app.use(serverlessExpressMiddleware.eventContext());
-
-app.use((req, res, next) => {
-  res.header("Acces-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+app.post('/', (req, res) => {
+  res.send({ ...req.body });
 });
 
 app.get('/v1', (req, res) => {
