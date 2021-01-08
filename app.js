@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 const app = express();
 
-const tableName = "Message";
+const tableName = process.env.TABLE;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,10 +20,10 @@ app.post('/', (req, res) => {
 
 app.get('/v1', (req, res) => {
   const params = {
-    tableName
+    tableName: tableName
   }
 
-  ddb.put(params).promise()
+  ddb.scan(params).promise()
   .then(response => res.send(response))
   .catch(err => res.send(err));
 });
