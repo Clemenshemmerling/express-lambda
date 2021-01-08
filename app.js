@@ -42,7 +42,7 @@ app.post('/v1', (req, res) => {
 app.put('/v1', (req, res) => {
   const params = {
     TableName,
-    Item: req.body
+    Key: req.body
   }
 
   ddb.update(params).promise()
@@ -53,7 +53,7 @@ app.put('/v1', (req, res) => {
 app.delete('/v1', (req, res) => {
   const params = {
     TableName,
-    Item: req.body
+    Key: req.body
   }
 
   ddb.delete(params).promise()
