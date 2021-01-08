@@ -24,7 +24,7 @@ app.get('/v1', (req, res) => {
   }
 
   ddb.put(params).promise()
-  .then(resopnse => res.send(response))
+  .then(response => res.send(response))
   .catch(err => res.send(err));
 });
 
