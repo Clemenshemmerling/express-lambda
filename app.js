@@ -12,7 +12,7 @@ app.use(express.json());
 app.post('/', (req, res) => {
   const params = {
     TableName,
-    item: req.body
+    Item: req.body
   }
 
   res.send(params);
@@ -31,7 +31,7 @@ app.get('/v1', (req, res) => {
 app.post('/v1', (req, res) => {
   const params = {
     TableName,
-    item: req.body
+    Item: req.body
   }
 
   ddb.put(params).promise()
@@ -42,7 +42,7 @@ app.post('/v1', (req, res) => {
 app.put('/v1', (req, res) => {
   const params = {
     TableName,
-    item: req.body
+    Item: req.body
   }
 
   ddb.update(params)
@@ -53,7 +53,7 @@ app.put('/v1', (req, res) => {
 app.delete('/v1', (req, res) => {
   const params = {
     TableName,
-    item: req.body
+    Item: req.body
   }
 
   ddb.delete(params)
