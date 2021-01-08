@@ -42,10 +42,10 @@ app.post('/v1', (req, res) => {
 app.put('/v1', (req, res) => {
   const params = {
     TableName,
-    Key: req.body
+    Item: req.body
   }
 
-  ddb.update(params).promise()
+  ddb.put(params).promise()
   .then(response => res.send(response))
   .catch(err => res.send(err));
 });
