@@ -4,14 +4,14 @@ const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 const app = express();
 
-const tableName = process.env.TABLE;
+const TableName = process.env.TABLE;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post('/', (req, res) => {
   const params = {
-    tableName,
+    TableName,
     item: req.body
   }
 
@@ -20,7 +20,7 @@ app.post('/', (req, res) => {
 
 app.get('/v1', (req, res) => {
   const params = {
-    tableName: tableName
+    TableName
   }
 
   ddb.scan(params).promise()
@@ -29,7 +29,36 @@ app.get('/v1', (req, res) => {
 });
 
 app.post('/v1', (req, res) => {
-  res.json({success: "test post"});
+  const params = {
+    TableName,
+    item: req.body
+  }
+
+  ddb.put(params).promise()
+  .then(response => res.send(response))
+  .catch(err => res.send(err));
+});
+
+app.put('/v1', (req, res) => {
+  const params = {
+    TableName,
+    item: req.body
+  }
+
+  ddb.update(params)
+  .then(response => res.send(response))
+  .catch(err => res.send(err));
+});
+
+app.delete('/v1', (req, res) => {
+  const params = {
+    TableName,
+    item: req.body
+  }
+
+  ddb.delete(params)
+  .then(response => res.send(response))
+  .catch(err => res.send(err));
 });
 
 module.exports = app;
