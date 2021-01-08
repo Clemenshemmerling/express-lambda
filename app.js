@@ -1,17 +1,29 @@
+require('dotenv').config();
 const express = require('express');
 const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient();
 const app = express();
 
+const tableName = process.env.TABLE;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post('/', (req, res) => {
-  res.send({ ...req.body });
+  const params = {
+    tableName,
+    item: req.body
+  }
+
+  res.send(params);
 });
 
 app.get('/v1', (req, res) => {
-  ddb.put().promise()
+  const params = {
+    tableName
+  }
+
+  ddb.put(params).promise()
   .then(resopnse => res.send(response))
   .catch(err => res.send(err));
 });
