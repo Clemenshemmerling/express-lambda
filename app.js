@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const AWS = require('aws-sdk');
+const cors = require('cors');
 const ddb = new AWS.DynamoDB.DocumentClient();
 const app = express();
 
 const TableName = process.env.TABLE;
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
